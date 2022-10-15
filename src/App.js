@@ -1,13 +1,24 @@
 import React from 'react';
 import ContactComponent from './component/ContactComponent';
 import NavbarComponent from './component/NavbarComponent';
+import CarouselComponent from './component/CarouselComponent';
+import QuickAccessCards from './component/QuickAccessCards';
 
-function App() {
+const App = () => {
   return (
-    <header>
-      <ContactComponent />
-      <NavbarComponent />
-    </header>
+    <div>
+      <header>
+        <ContactComponent />
+        <NavbarComponent />
+      </header>
+      <main>
+        <CarouselComponent />
+        <QuickAccessCards />
+      </main>
+      <footer>
+
+      </footer>
+    </div>
   );
 }
 
