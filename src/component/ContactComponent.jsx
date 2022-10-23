@@ -3,7 +3,8 @@ import Container from 'react-bootstrap/Container';
 import '../App.css';
 
 const contactCss = {
-    backgroundColor: 'lightgreen'
+    backgroundColor: 'lightgreen',
+    padding: '5px 0px'
 };
 const contactItemCss = {
     padding: '5px',

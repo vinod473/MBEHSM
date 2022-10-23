@@ -26,7 +26,16 @@ const loginLabelCss = {
 const downloadIconCss = {
     margin: '0px 10px'
 };
-
+const noticeHeading = {
+    color: 'blue',
+    fontSize: '15px',
+};
+const noticeBody = {
+    fontSize: '15px',
+    borderBottomStyle: 'solid',
+    marginBottom: '10px',
+    paddingBottom: '10px'
+};
 const QuickAccessCards = () => {
     return (
         <Container style={{display:'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
@@ -49,6 +58,28 @@ const QuickAccessCards = () => {
                     <i style={iconCss} class="bi bi-bullseye" />
                     Notice Board
                 </Card.Header>
+                <Container>
+                    <div id="scroll-container">
+                        <div id="scroll-text">
+                            <div>
+                                <div style={noticeHeading}>ADMISSION NOTICE</div>
+                                <div style={noticeBody}>Admissions are open</div>
+                            </div>
+                            <div>
+                                <div style={noticeHeading}>RESULT PUBLICATION</div>
+                                <div style={noticeBody}>All Result Declared.</div>
+                            </div>
+                            <div>
+                                <div style={noticeHeading}>ADMISSION NOTICE</div>
+                                <div style={noticeBody}>Admissions are open</div>
+                            </div>
+                            <div>
+                                <div style={noticeHeading}>RESULT PUBLICATION</div>
+                                <div style={noticeBody}>All Result Declared.</div>
+                            </div>
+                        </div>
+                    </div>
+                </Container>
             </Card>
             <Card style={cardCss}>
                 <Card.Header style={cardHeaderCss}>
@@ -65,7 +96,7 @@ const QuickAccessCards = () => {
                             aria-describedby="basic-addon1"
                         />
                     </InputGroup>   
-                    <Button variant="success" type="submit">Submit</Button>
+                    <Button variant="success" type="submit">Login</Button>
                 </Container>
             </Card>
             <Card style={cardCss}>
