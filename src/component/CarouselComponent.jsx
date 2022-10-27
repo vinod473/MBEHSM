@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 const test = {
-    maxHeight: '800px'
+    maxHeight: '700px'
 };
 const CarouselComponent = () => {
     const [index, setIndex] = useState(0);

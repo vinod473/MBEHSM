@@ -39,7 +39,7 @@ const noticeBody = {
 const QuickAccessCards = () => {
     return (
         <Container style={{display:'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
-            <Card style={cardCss}>
+            <Card style={cardCss} id='download'>
                 <Card.Header style={cardHeaderCss}>
                     <i style={iconCss} class="bi bi-cloud-arrow-down-fill" />
                     Downloads

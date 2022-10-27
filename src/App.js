@@ -1,29 +1,40 @@
 import React from 'react';
-import ContactComponent from './component/ContactComponent';
-import NavbarComponent from './component/NavbarComponent';
-import CarouselComponent from './component/CarouselComponent';
-import QuickAccessCards from './component/QuickAccessCards';
-import Copyright from './component/CopyrightComponent';
-import MessageComponent from './component/MessageComponent';
-import BrandContent from './component/BrandContent';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import SharedLayout from './pages/SharedLayout';
+import Home from './pages/Home';
+import Error from './pages/Error';
+import ContactUs from './pages/ContactUs';
+import Gallery from './pages/Gallery';
 
 const App = () => {
   return (
-    <div>
-      <header>
-        <ContactComponent />
-        <BrandContent />
-        <NavbarComponent />
-      </header>
-      <main>
-        <CarouselComponent />
-        <MessageComponent />
-        <QuickAccessCards />
-      </main>
-      <footer>
-        <Copyright />
-      </footer>
-    </div>
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element={<SharedLayout />}>
+            <Route index element={<Home />} />
+            <Route path='contactUs' element={<ContactUs />} />
+            <Route path='gallery' element={<Gallery />} />
+            <Route path='*' element={<Error />} />
+          {/*<Route path='about' element={<About />} />
+
+          <Route path='products' element={<SharedProductLayout />}>
+            <Route index element={<Products />} />
+            <Route path=':productId' element={<SingleProduct />} />
+          </Route>
+
+          <Route path='login' element={<Login setUser={setUser}></Login>} />
+          <Route
+            path='dashboard'
+            element={
+              <ProtectedRoute user={user}>
+                <Dashboard user={user} />
+              </ProtectedRoute>
+            }
+          /> */}
+          
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

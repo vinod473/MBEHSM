@@ -16,7 +16,7 @@ const iconCss = {
 const ContactComponent = () => {
     return (
         <div style={contactCss}>
-            <Container>
+            <Container style={{paddingLeft:'30px'}}>
                 <span style={contactItemCss}>
                     <i style={iconCss} class="bi bi-telephone-fill"/>
                     +91-7599833082,9458445207

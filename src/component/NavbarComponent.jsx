@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom';
 
 const test = {
     margin:'0px 8px'
@@ -10,8 +11,8 @@ const test = {
 const NavbarComponent = () => {
     return (
         <Navbar bg="light" expand="lg">
-            <Container>
-                <Navbar.Brand href="#home">Home</Navbar.Brand>
+            <Container style={{paddingLeft:'40px'}}>
+                <Navbar.Brand as={Link} to='/' href="#home">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -36,11 +37,11 @@ const NavbarComponent = () => {
                         <NavDropdown.Item href="#action/3.4">Registered Doctor List</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Registration</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="#home" style={test}>Gallery</Nav.Link>
+                    <Nav.Link as={Link} to='/gallery' style={test}>Gallery</Nav.Link>
                     <Nav.Link href="#home" style={test}>Examination</Nav.Link>
                     <Nav.Link href="#home" style={test}>Results</Nav.Link>
-                    <Nav.Link href="#home" style={test}>Download</Nav.Link>
-                    <Nav.Link href="#home" style={test}>Contact Us</Nav.Link>
+                    <Nav.Link href="#download" style={test}>Download</Nav.Link>
+                    <Nav.Link as={Link} to='/contactUs' style={test}>Contact Us</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>
