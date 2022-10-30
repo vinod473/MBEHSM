@@ -6,11 +6,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 
 const test = {
-    margin:'0px 8px'
+    margin:'0px 8px',
+    backgroundColor:'lightgreen'
 };
 const NavbarComponent = () => {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar style={{backgroundColor:'lightgreen'}} expand="lg">
             <Container style={{paddingLeft:'40px'}}>
                 <Navbar.Brand as={Link} to='/' href="#home">Home</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -39,8 +40,8 @@ const NavbarComponent = () => {
                     </NavDropdown>
                     <Nav.Link as={Link} to='/gallery' style={test}>Gallery</Nav.Link>
                     <Nav.Link href="#home" style={test}>Examination</Nav.Link>
-                    <Nav.Link href="#home" style={test}>Results</Nav.Link>
-                    <Nav.Link href="#download" style={test}>Download</Nav.Link>
+                    <Nav.Link as={Link} to="/result" style={test}>Results</Nav.Link>
+                    <Nav.Link as={Link} to="/download" style={test}>Download</Nav.Link>
                     <Nav.Link as={Link} to='/contactUs' style={test}>Contact Us</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>

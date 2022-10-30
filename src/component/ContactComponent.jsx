@@ -10,7 +10,8 @@ const contactItemCss = {
     padding: '5px',
 };
 const iconCss = {
-    margin: '0px 8px'
+    margin: '0px 8px',
+    color: '#3250a8'
 };
 
 const ContactComponent = () => {
@@ -23,7 +24,7 @@ const ContactComponent = () => {
                 </span>
                 <span style={contactItemCss}>
                     <i style={iconCss} class="bi bi-envelope-fill" />
-                    admission@mbehsmindia.com
+                    admission@mbehsm.in
                 </span>
                 <span style={contactItemCss}>
                     <i style={iconCss} class="bi bi-hand-index-thumb-fill" />

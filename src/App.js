@@ -5,6 +5,8 @@ import Home from './pages/Home';
 import Error from './pages/Error';
 import ContactUs from './pages/ContactUs';
 import Gallery from './pages/Gallery';
+import Downloads from './pages/Downloads';
+import Result from './pages/Result';
 
 const App = () => {
   return (
@@ -14,6 +16,8 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path='contactUs' element={<ContactUs />} />
             <Route path='gallery' element={<Gallery />} />
+            <Route path='download' element={<Downloads />} />
+            <Route path='result' element={<Result />} />
             <Route path='*' element={<Error />} />
           {/*<Route path='about' element={<About />} />
 

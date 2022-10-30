@@ -1,18 +1,18 @@
 import React from "react";
 import {Card, Button} from 'react-bootstrap';
-import {Container, ListGroup} from 'react-bootstrap';
+import {Container, ListGroup, Nav} from 'react-bootstrap';
 import {Form, InputGroup} from 'react-bootstrap';
 
 const cardCss = {
     width: '25rem',
-    margin: '10px 0px 5px 0px'
+    margin: '10px 0px 5px 0px',
 };
 const cardImgCss = {
     maxHeight: '14rem'
 };
 const iconCss = {
     fontSize: '25px',
-    color: 'blue',
+    color: 'green',
     marginRight: '7px'
 };
 const cardHeaderCss = {
@@ -44,13 +44,43 @@ const QuickAccessCards = () => {
                     <i style={iconCss} class="bi bi-cloud-arrow-down-fill" />
                     Downloads
                 </Card.Header>
-                <ListGroup variant="flush">
-                    <ListGroup.Item><i class="bi bi-download" style={downloadIconCss}/>Application Form</ListGroup.Item>
-                    <ListGroup.Item><i class="bi bi-download" style={downloadIconCss}/>Examination Form</ListGroup.Item>
-                    <ListGroup.Item><i class="bi bi-download" style={downloadIconCss}/>Syllabus Download</ListGroup.Item>
-                    <ListGroup.Item><i class="bi bi-download" style={downloadIconCss}/>Brochure Download</ListGroup.Item>
-                    <ListGroup.Item><i class="bi bi-download" style={downloadIconCss}/>Practice Registration Form</ListGroup.Item>
-                    <ListGroup.Item><i class="bi bi-download" style={downloadIconCss}/>Download Student's Admit Card</ListGroup.Item>
+                <ListGroup variant="primary">
+                    <Nav.Link href='#'>
+                        <ListGroup.Item>
+                            <i class="bi bi-download" style={downloadIconCss}/>
+                            Application Form
+                        </ListGroup.Item>
+                    </Nav.Link>
+                    <Nav.Link href='#'>
+                        <ListGroup.Item>
+                            <i class="bi bi-download" style={downloadIconCss}/>
+                            Examination Form
+                        </ListGroup.Item>
+                    </Nav.Link>
+                    <Nav.Link href='#'>
+                        <ListGroup.Item>
+                            <i class="bi bi-download" style={downloadIconCss}/>
+                            Syllabus Download
+                        </ListGroup.Item>
+                    </Nav.Link>
+                    <Nav.Link href='#'>
+                        <ListGroup.Item>
+                            <i class="bi bi-download" style={downloadIconCss}/>
+                            Brochure Download
+                        </ListGroup.Item>
+                    </Nav.Link>
+                    <Nav.Link href='#'>
+                        <ListGroup.Item>
+                            <i class="bi bi-download" style={downloadIconCss}/>
+                            Practice Registration Form
+                        </ListGroup.Item>
+                    </Nav.Link>
+                    <Nav.Link href='#'>
+                        <ListGroup.Item>
+                            <i class="bi bi-download" style={downloadIconCss}/>
+                            Download Student's Admit Card
+                        </ListGroup.Item>
+                    </Nav.Link>
                 </ListGroup>
             </Card>
             <Card style={cardCss}>
