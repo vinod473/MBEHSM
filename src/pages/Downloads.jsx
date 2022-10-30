@@ -1,10 +1,9 @@
 import React from 'react'
 import { Card, Container, Nav, ListGroup } from 'react-bootstrap';
-import MessageComponent from '../component/MessageComponent';
 
 const cardCss = {
     width: '25rem',
-    margin: '20px 0px 20px 400px'
+    backgroundColor: '#e876db'
 };
 const iconCss = {
     fontSize: '25px',
@@ -18,9 +17,15 @@ const cardHeaderCss = {
 const downloadIconCss = {
     margin: '0px 20px'
 };
+const containerCss = {
+    display:'flex',
+    justifyContent:'space-around',
+    padding:'20px 0px',
+};
+
 const Downloads = () => {
     return (
-        <Container>
+        <Container style={containerCss}>
             <Card style={cardCss} id='download'>
                 <Card.Header style={cardHeaderCss}>
                     <i style={iconCss} class="bi bi-cloud-arrow-down-fill" />
@@ -53,7 +58,6 @@ const Downloads = () => {
                     </Nav.Link>
                 </ListGroup>
             </Card>
-            <MessageComponent />
         </Container>
     );
 };

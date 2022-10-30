@@ -7,6 +7,13 @@ import ContactUs from './pages/ContactUs';
 import Gallery from './pages/Gallery';
 import Downloads from './pages/Downloads';
 import Result from './pages/Result';
+import Examination from './pages/Examination';
+import About from './pages/About';
+import Electropathy from './pages/Electropathy';
+import JoinMBEHSM from './pages/JoinMBEHSM';
+import FatherEHP from './pages/FatherEHP';
+import Director from './pages/Director';
+import Registrar from './pages/Registrar';
 
 const App = () => {
   return (
@@ -18,6 +25,14 @@ const App = () => {
             <Route path='gallery' element={<Gallery />} />
             <Route path='download' element={<Downloads />} />
             <Route path='result' element={<Result />} />
+            <Route path='examination' element={<Examination />} />
+            <Route path='about' element={<About />} />
+            <Route path='electropathy' element={<Electropathy />} />
+            <Route path='joinMBEHSM' element={<JoinMBEHSM />} />
+            <Route path='father-ehp' element={<FatherEHP />} />
+            <Route path='father-ehp' element={<FatherEHP />} />
+            <Route path='director' element={<Director/>} />
+            <Route path='registrar' element={<Registrar/>} />
             <Route path='*' element={<Error />} />
           {/*<Route path='about' element={<About />} />
 
