@@ -17,10 +17,12 @@ import Registrar from './pages/Registrar';
 import Legal from './pages/Legal';
 import Affiliation from './pages/Affiliation';
 import Registration from './pages/Registration';
+import ScrollToTop from './component/ScrollToTop';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
           <Route path='/' element={<SharedLayout />}>
             <Route index element={<Home />} />
