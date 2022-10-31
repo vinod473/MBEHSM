@@ -46,13 +46,13 @@ const QuickAccessCards = () => {
                     Downloads
                 </Card.Header>
                 <ListGroup variant="primary">
-                    <Nav.Link as={Link} to='/' target="_blank">
+                    <Nav.Link href='enrollmentForm.pdf' download>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Application Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link as={Link} to='/' target="_blank">
+                    <Nav.Link href='examinationForm.pdf' download>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Examination Form
@@ -64,13 +64,13 @@ const QuickAccessCards = () => {
                             Syllabus Download
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link as={Link} to='/' target="_blank">
+                    <Nav.Link href='AffiliationForm.pdf' download='Brochure'>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Brochure Download
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link as={Link} to='/' target="_blank">
+                    <Nav.Link href='registrationForm.pdf' download>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Practice Registration Form

@@ -55,9 +55,9 @@ const ContactUs = () => {
                         <Container style={{display:'flex'}}>
                             <i style={iconCss} class="bi bi-geo-alt-fill"></i>
                             <div>
-                                <p>Office: Husainabad Clock Tower Lucknow,</p>
-                                <p>Delhi - 110092,</p>
-                                <p>Moradbad</p>
+                                <p>Office: Near Dhanaura Bus Stand,</p>
+                                <p>Amroha - 244236,</p>
+                                <p>Amroha</p>
                             </div>
                         </Container>
                     </ListGroup.Item>
@@ -73,7 +73,7 @@ const ContactUs = () => {
                     <ListGroup.Item>
                         <Container style={{display:'flex'}}>
                             <i style={iconCss} class="bi bi-envelope-fill" />
-                            admission@mbehsmindia.com
+                            admission@mbehsm.in
                         </Container>
                     </ListGroup.Item>
                 </ListGroup>
