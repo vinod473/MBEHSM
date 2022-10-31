@@ -2,6 +2,7 @@ import React from "react";
 import {Card, Button} from 'react-bootstrap';
 import {Container, ListGroup, Nav} from 'react-bootstrap';
 import {Form, InputGroup} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 const cardCss = {
     width: '25rem',
@@ -45,37 +46,37 @@ const QuickAccessCards = () => {
                     Downloads
                 </Card.Header>
                 <ListGroup variant="primary">
-                    <Nav.Link href='#'>
+                    <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Application Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Examination Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Syllabus Download
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Brochure Download
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Practice Registration Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Download Student's Admit Card
@@ -137,7 +138,7 @@ const QuickAccessCards = () => {
                         Medicine Board Of Electro Homeopathy System Of Medicine is an autonomous
                         organization providing education in medical Science
                     </Card.Text>
-                    <Button variant="primary">Read More</Button>
+                    <Button variant="primary" as={Link} to='/about'>Read More</Button>
                 </Card.Body>
             </Card>
             <Card style={cardCss}>
@@ -148,7 +149,7 @@ const QuickAccessCards = () => {
                         Electro Homoeopathy is a plant-orientated system of herbal medicine. The
                         Electro Homoeopathic remedies
                     </Card.Text>
-                    <Button variant="primary">Read More</Button>
+                    <Button variant="primary" as={Link} to='/electropathy'>Read More</Button>
                 </Card.Body>
             </Card>
             <Card style={cardCss}>
@@ -159,7 +160,7 @@ const QuickAccessCards = () => {
                         Course in Electropathy offered by M.B.E.H.S.M. 
                         Students completing the Certificate course are eligible for Diploma Course (D.E.M.S.)
                     </Card.Text>
-                    <Button variant="primary">Read More</Button>
+                    <Button variant="primary" as={Link} to='/electropathy'>Read More</Button>
                 </Card.Body>
             </Card>
         </Container>

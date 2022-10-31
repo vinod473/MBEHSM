@@ -24,19 +24,19 @@ const NavbarComponent = () => {
                         <NavDropdown.Item as={Link} to='/joinMBEHSM'>Why to Join M.B.E.H.S</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Administration" id="basic-nav-dropdown" style={test}>
-                        <NavDropdown.Item href="#action/3.1">Adminstration Officials</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/'>Adminstration Officials</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/director'>Director Message</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/registrar'>Registrar Message</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Academic" id="basic-nav-dropdown" style={test}>
                         <NavDropdown.Item as={Link} to='/student'>Student Corner</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Course Details</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Academic Calender</NavDropdown.Item>
-                        <NavDropdown.Item href="/legal">Legal Status Details</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/'>Academic Calender</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="/legal">Legal Status Details</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/affiliation'>Affiliation Process</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Practice Registration</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Registered Doctor List</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Registration</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/'>Practice Registration</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/'>Registered Doctor List</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/registration'>Registration</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link as={Link} to='/gallery' style={test}>Gallery</Nav.Link>
                     <Nav.Link as={Link} to="/examination" style={test}>Examination</Nav.Link>

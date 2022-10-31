@@ -11,16 +11,17 @@ const headerCss = {
     backgroundColor:'#e876db'
 };
 
-const Result = () => {
+const Registration = () => {
     return (
         <Container style={{display:'flex', justifyContent:'space-around', padding:'20px 0px'}} >
             <Card style={{width: '25rem', margin: '10px 0px 5px 0px'}}>
-                <Card.Header style={headerCss}>Student Result Download</Card.Header>
+                <Card.Header style={headerCss}>Student Registration View</Card.Header>
                 <div style={{padding:'20px'}}>
-                    <div style={loginLabelCss}>Enter Enrollment/Roll Number</div>
+                    <div style={loginLabelCss}>Registration Number</div>
                     <InputGroup className="mb-3">
                         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                         <Form.Control
+                            placeholder="Enter registration number"
                             aria-label="Username"
                             aria-describedby="basic-addon1"
                         />
@@ -34,4 +35,4 @@ const Result = () => {
     );
 };
 
-export default Result;
+export default Registration;

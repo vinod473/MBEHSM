@@ -1,6 +1,8 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 import Container from "react-bootstrap/Container";
+import { Link } from "react-router-dom";
+
 const cardHeaderCss = {
     textAlign: 'center',
     fontSize: '18px',
@@ -38,7 +40,7 @@ const MessageComponent = () => {
                         introduced by Dr.Theophrastus Von Hoheneeim (Paracelsus) and Dr. Von
                         Helmont
                     </Card.Text>
-                    <Card.Link href="#">Read More</Card.Link>
+                    <Card.Link as={Link} to='/father-ehp'>Read More</Card.Link>
                 </Card.Body>
             </Card>
             <Card bg='light' style={{ width: '18rem', flex:'1', marginLeft:'5px' }}>
@@ -66,7 +68,7 @@ const MessageComponent = () => {
                         Calcutta High Court in his strongly worded decision has remarked that
                         Govt. Can't stop the development of new medical science (Electropathy)
                     </Card.Text>
-                    <Card.Link href="#">Read More</Card.Link>
+                    <Card.Link as={Link} to='/director'>Read More</Card.Link>
                 </Card.Body>
             </Card>
         </div>
