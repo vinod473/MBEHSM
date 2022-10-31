@@ -32,25 +32,25 @@ const Downloads = () => {
                     Downloads
                 </Card.Header>
                 <ListGroup variant="flush">
-                    <Nav.Link href='#'>
+                    <Nav.Link href='enrollmentForm.pdf' download='enrollmentForm'>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Enrollment Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link href='examinationForm.pdf' download='examinationForm'>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Examination Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link href='registrationForm.pdf' download='registrationForm'>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Registration Form
                         </ListGroup.Item>
                     </Nav.Link>
-                    <Nav.Link href='#'>
+                    <Nav.Link href='AffiliationForm.pdf' download='AffiliationForm'>
                         <ListGroup.Item>
                             <i class="bi bi-download" style={downloadIconCss}/>
                             Affiliation Form

@@ -14,6 +14,8 @@ import JoinMBEHSM from './pages/JoinMBEHSM';
 import FatherEHP from './pages/FatherEHP';
 import Director from './pages/Director';
 import Registrar from './pages/Registrar';
+import Legal from './pages/Legal';
+import Affiliation from './pages/Affiliation';
 
 const App = () => {
   return (
@@ -33,6 +35,9 @@ const App = () => {
             <Route path='father-ehp' element={<FatherEHP />} />
             <Route path='director' element={<Director/>} />
             <Route path='registrar' element={<Registrar/>} />
+            <Route path='student' element={<Result />} />
+            <Route path='legal' element={<Legal />} />
+            <Route path='affiliation' element={<Affiliation />} />
             <Route path='*' element={<Error />} />
           {/*<Route path='about' element={<About />} />
 

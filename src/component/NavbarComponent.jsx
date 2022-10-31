@@ -29,11 +29,11 @@ const NavbarComponent = () => {
                         <NavDropdown.Item as={Link} to='/registrar'>Registrar Message</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Academic" id="basic-nav-dropdown" style={test}>
-                        <NavDropdown.Item href="#action/3.1">Student Corner</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/student'>Student Corner</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Course Details</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3">Academic Calender</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Legal Status Details</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Affiliation Process</NavDropdown.Item>
+                        <NavDropdown.Item href="/legal">Legal Status Details</NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to='/affiliation'>Affiliation Process</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Practice Registration</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Registered Doctor List</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.4">Registration</NavDropdown.Item>
