@@ -1,0 +1,91 @@
+html {
+    -webkit-print-color-adjust: exact;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'open sans', 'helvetica neue', sans-serif;
+}
+
+.brandContent {
+    display: flex;
+}
+
+.brandImage {
+    margin: 15px 0px 0px 0px;
+    max-height: 100px;
+}
+.brand-image {
+    text-align: center;
+    height: 100px;
+    width: 140px;
+}
+.brandHeading {
+    margin-left: 5px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.brandMainHeading {
+    color: blue;
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: 25px;
+    margin-left: 0px;
+    font-size: 18px;
+    text-align: left;
+}
+.brand-sub-heading {
+    margin-top: 5px;
+    text-align: left;
+    font-size: 17px;
+}
+
+.bodyHeading {
+    text-align: center;
+}
+
+.student-record-heading {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 90%;
+    margin-left: 40px;
+    margin-top: 20px;
+    background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("../../public/Logo_blue.jpeg");;
+    background-repeat: no-repeat;
+    background-size: 550px 400px;
+    background-position: center;
+}
+  
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    width: 100px;
+}
+
+.table-row-value {
+    text-align: center;
+}
+
+.pdf-disclaimer {
+    margin: 50px 30px;
+}
+
+.hr {
+    border: 1.2px solid #000;
+}
+.table-row-key {
+    font-weight: bold;
+}
+
+@media print {
+    @page { margin: 0; }
+    body { margin: 0cm; }
+  }

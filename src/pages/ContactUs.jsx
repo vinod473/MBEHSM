@@ -2,13 +2,7 @@ import React from 'react'
 import { Card, Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { ListGroup } from 'react-bootstrap';
 
-const iconCss = {
-    margin: '0px 30px 0px 10px',
-    color: 'blue',
-    fontSize: '18px'
-};
 const ContactUs = () => {
     return (
         <Container style={{padding:'50px 300px 25px 200px'}}>
@@ -47,36 +41,6 @@ const ContactUs = () => {
                         </Button>
                     </Container>
                 </Form>
-            </Card>
-            <Card style={{margin:'30px 100px 0px 100px'}}>
-                <Card.Header style={{textAlign:'center', fontSize:'18px', fontWeight:'bold'}}>Contact Info</Card.Header>
-                <ListGroup variant="flush">
-                    <ListGroup.Item>
-                        <Container style={{display:'flex'}}>
-                            <i style={iconCss} class="bi bi-geo-alt-fill"></i>
-                            <div>
-                                <p>Office: Near Dhanaura Bus Stand,</p>
-                                <p>Amroha - 244236,</p>
-                                <p>Amroha</p>
-                            </div>
-                        </Container>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                        <Container style={{display:'flex'}}>
-                            <i style={iconCss} class="bi bi-telephone-fill"/>
-                            <div>
-                                <p>+91-7599833082</p>
-                                <p>+91 9458445207</p>
-                            </div>
-                        </Container>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                        <Container style={{display:'flex'}}>
-                            <i style={iconCss} class="bi bi-envelope-fill" />
-                            admission@mbehsm.in
-                        </Container>
-                    </ListGroup.Item>
-                </ListGroup>
             </Card>
         </Container>
     );

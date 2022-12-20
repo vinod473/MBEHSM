@@ -43,6 +43,7 @@ const NavbarComponent = () => {
                     <Nav.Link as={Link} to="/result" style={test}>Results</Nav.Link>
                     <Nav.Link as={Link} to="/download" style={test}>Download</Nav.Link>
                     <Nav.Link as={Link} to='/contactUs' style={test}>Contact Us</Nav.Link>
+                    <Nav.Link as={Link} to='/login' style={test}>Login</Nav.Link>
                 </Nav>
                 </Navbar.Collapse>
             </Container>

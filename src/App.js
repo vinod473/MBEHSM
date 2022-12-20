@@ -18,6 +18,9 @@ import Legal from './pages/Legal';
 import Affiliation from './pages/Affiliation';
 import Registration from './pages/Registration';
 import ScrollToTop from './component/ScrollToTop';
+// import Login from './pages/Login';
+// import Dashboard from './pages/Dashboard';
+// import Hello from './pages/Hello';
 
 const App = () => {
   return (
@@ -60,6 +63,7 @@ const App = () => {
           /> */}
           
         </Route>
+        {/* <Route path='hello' element={<Hello />} /> */}
       </Routes>
     </BrowserRouter>
   );
