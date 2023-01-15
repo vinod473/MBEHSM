@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SharedLayout from './pages/SharedLayout';
 import Home from './pages/Home';
@@ -18,16 +18,27 @@ import Legal from './pages/Legal';
 import Affiliation from './pages/Affiliation';
 import Registration from './pages/Registration';
 import ScrollToTop from './component/ScrollToTop';
-// import Login from './pages/Login';
-// import Dashboard from './pages/Dashboard';
-// import Hello from './pages/Hello';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Stats from './pages/Stats';
+import StudentRegistration from './pages/registration/StudentRegistration';
+import { isLoggedIn } from './services/authentication';
 
 const App = () => {
+  const [isLoggedInUser, setIsLoggedInUser] = useState(false);
+  useEffect(() => {
+      const isLogin = isLoggedIn();
+      setIsLoggedInUser(isLogin);
+  }, [])
+  useEffect(() => {
+    console.log('zoooddd');
+  }, [isLoggedInUser]);
+
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-          <Route path='/' element={<SharedLayout />}>
+          <Route path='/' element={<SharedLayout isLoggedInUser={isLoggedInUser} setIsLoggedInUser={setIsLoggedInUser} />}>
             <Route index element={<Home />} />
             <Route path='contactUs' element={<ContactUs />} />
             <Route path='gallery' element={<Gallery />} />
@@ -44,13 +55,13 @@ const App = () => {
             <Route path='legal' element={<Legal />} />
             <Route path='affiliation' element={<Affiliation />} />
             <Route path='registration' element={<Registration />} />
+            <Route path='login' element={<Login setIsLoggedInUser={setIsLoggedInUser} />} />
+            <Route path='dashboard' element={<Dashboard isLoggedInUser={isLoggedInUser} />}>
+              <Route path='stats' element={<Stats />} />
+              <Route path='register' element={<StudentRegistration />} />
+            </Route>
             <Route path='*' element={<Error />} />
           {/*<Route path='about' element={<About />} />
-
-          <Route path='products' element={<SharedProductLayout />}>
-            <Route index element={<Products />} />
-            <Route path=':productId' element={<SingleProduct />} />
-          </Route>
 
           <Route path='login' element={<Login setUser={setUser}></Login>} />
           <Route
@@ -63,7 +74,6 @@ const App = () => {
           /> */}
           
         </Route>
-        {/* <Route path='hello' element={<Hello />} /> */}
       </Routes>
     </BrowserRouter>
   );

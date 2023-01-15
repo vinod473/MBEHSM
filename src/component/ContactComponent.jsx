@@ -19,16 +19,16 @@ const ContactComponent = () => {
         <div style={contactCss}>
             <Container style={{paddingLeft:'30px'}}>
                 <span style={contactItemCss}>
-                    <i style={iconCss} class="bi bi-telephone-fill"/>
+                    <i style={iconCss} className="bi bi-telephone-fill"/>
                     +91-7599833082,9458445207
                 </span>
                 <span style={contactItemCss}>
-                    <i style={iconCss} class="bi bi-envelope-fill" />
+                    <i style={iconCss} className="bi bi-envelope-fill" />
                     admission@mbehsm.in
                 </span>
                 <span style={contactItemCss}>
-                    <i style={iconCss} class="bi bi-hand-index-thumb-fill" />
-                    <span class='blink_me'>Welcome to our website</span>
+                    <i style={iconCss} className="bi bi-hand-index-thumb-fill" />
+                    <span className='blink_me'>Welcome to our website</span>
                 </span>
             </Container>
         </div>

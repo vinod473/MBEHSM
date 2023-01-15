@@ -13,7 +13,7 @@
     overflow: hidden;
 }
   
-  #scroll-text {
+#scroll-text {
     height: 100%;
     font-size: 18px;
     
@@ -55,8 +55,12 @@
       -webkit-transform: translateY(-100%);
       transform: translateY(-100%);
     }
-  }
+}
 
+.wrapper {
+  width: 300px;
+  margin-right: 0px;
+}
 .wrapper .sidebar{
     background: rgb(5, 68, 104);
     top: 0;
@@ -65,6 +69,7 @@
     min-Height: 770px;
     padding: 0px 0;
     transition: all 0.5s ease;
+    margin-right: 0px;
 }
 .wrapper .sidebar ul li a{
   display: block;
@@ -85,9 +90,7 @@
 .wrapper .sidebar ul li a:hover,
 .wrapper .sidebar ul li a.active{
     color: #0c7db1;
-
     background:white;
-    border-right: 2px solid rgb(5, 68, 104);
 }
 
 .wrapper .sidebar ul li a:hover .icon,
@@ -109,4 +112,50 @@ li{
 .sidebar{
   margin-top: 0px;
   padding: 0px;
+  margin-right: 0px;
+}
+
+.stepwizard-step p {
+  margin-top: 0px;
+  color:#666;
+}
+.stepwizard-row {
+  display: table-row;
+}
+.stepwizard {
+  display: table;
+  width: 100%;
+  position: relative;
+}
+.stepwizard-step button[disabled] {
+  /*opacity: 1 !important;
+  filter: alpha(opacity=100) !important;*/
+}
+.stepwizard .btn.disabled, .stepwizard .btn[disabled], .stepwizard fieldset[disabled] .btn {
+  opacity:1 !important;
+  color:#bbb;
+}
+.stepwizard-row:before {
+  top: 14px;
+  bottom: 0;
+  position: absolute;
+  content:" ";
+  width: 100%;
+  height: 1px;
+  background-color: #ccc;
+  z-index: 0;
+}
+.stepwizard-step {
+  display: table-cell;
+  text-align: center;
+  position: relative;
+}
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
 }

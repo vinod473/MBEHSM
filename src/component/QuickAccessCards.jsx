@@ -42,43 +42,43 @@ const QuickAccessCards = () => {
         <Container style={{display:'flex', flexWrap:'wrap', justifyContent:'space-around'}}>
             <Card style={cardCss} id='download'>
                 <Card.Header style={cardHeaderCss}>
-                    <i style={iconCss} class="bi bi-cloud-arrow-down-fill" />
+                    <i style={iconCss} className="bi bi-cloud-arrow-down-fill" />
                     Downloads
                 </Card.Header>
                 <ListGroup variant="primary">
                     <Nav.Link href='enrollmentForm.pdf' download>
                         <ListGroup.Item>
-                            <i class="bi bi-download" style={downloadIconCss}/>
+                            <i className="bi bi-download" style={downloadIconCss}/>
                             Application Form
                         </ListGroup.Item>
                     </Nav.Link>
                     <Nav.Link href='examinationForm.pdf' download>
                         <ListGroup.Item>
-                            <i class="bi bi-download" style={downloadIconCss}/>
+                            <i className="bi bi-download" style={downloadIconCss}/>
                             Examination Form
                         </ListGroup.Item>
                     </Nav.Link>
                     <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
-                            <i class="bi bi-download" style={downloadIconCss}/>
+                            <i className="bi bi-download" style={downloadIconCss}/>
                             Syllabus Download
                         </ListGroup.Item>
                     </Nav.Link>
                     <Nav.Link href='AffiliationForm.pdf' download='Brochure'>
                         <ListGroup.Item>
-                            <i class="bi bi-download" style={downloadIconCss}/>
+                            <i className="bi bi-download" style={downloadIconCss}/>
                             Brochure Download
                         </ListGroup.Item>
                     </Nav.Link>
                     <Nav.Link href='registrationForm.pdf' download>
                         <ListGroup.Item>
-                            <i class="bi bi-download" style={downloadIconCss}/>
+                            <i className="bi bi-download" style={downloadIconCss}/>
                             Practice Registration Form
                         </ListGroup.Item>
                     </Nav.Link>
                     <Nav.Link as={Link} to='/' target="_blank">
                         <ListGroup.Item>
-                            <i class="bi bi-download" style={downloadIconCss}/>
+                            <i className="bi bi-download" style={downloadIconCss}/>
                             Download Student's Admit Card
                         </ListGroup.Item>
                     </Nav.Link>
@@ -86,7 +86,7 @@ const QuickAccessCards = () => {
             </Card>
             <Card style={cardCss}>
                 <Card.Header style={cardHeaderCss}>
-                    <i style={iconCss} class="bi bi-bullseye" />
+                    <i style={iconCss} className="bi bi-bullseye" />
                     Notice Board
                 </Card.Header>
                 <Container>
@@ -114,7 +114,7 @@ const QuickAccessCards = () => {
             </Card>
             <Card style={cardCss}>
                 <Card.Header style={cardHeaderCss}>
-                    <i style={iconCss} class="bi bi-person-check-fill" />
+                    <i style={iconCss} className="bi bi-person-check-fill" />
                     College Login Dashboard
                 </Card.Header>
                 <Container>

@@ -118,7 +118,7 @@ const Affiliation = () => {
                 <div>
                     <h3 style={h3css}>Download Documents</h3>
                     <p>
-                        <i class="fa-light fa-hand-back-point-right"/>
+                        <i className="fa-light fa-hand-back-point-right"/>
                         APPLICATION FORM FOR STUDY/GUIDANCE CENTER</p>
                     <p>RESOLUTION FOR ESTABLISHMENT OF NEW INSTITUTION</p>
                     <p>COLLEGE AFFIDAVIT</p>

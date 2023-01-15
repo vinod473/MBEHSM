@@ -8,6 +8,8 @@ const server = http.createServer(app);
 const PORT = '8080';
 
 const StudentController = require('./controllers/Student');
+const AuthController = require('./controllers/Auth');
+app.use(cors());
 
 const startServer = () => {
     server.listen(PORT, () => {
@@ -16,6 +18,7 @@ const startServer = () => {
 };
 
 app.use('/api/student', StudentController);
+app.use('/api/auth', AuthController);
 app.get('/download', function(req, res){
     const file = '../public/studentRecord.pdf';
     res.download(file); // Set disposition and send it.

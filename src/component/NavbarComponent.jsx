@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
+import { isLoggedIn } from '../services/authentication';
 
 const test = {
     margin:'0px 8px',
     backgroundColor:'lightgreen'
 };
-const NavbarComponent = () => {
+const NavbarComponent = (isLoggedInUser, setIsLoggedInUser) => {
+    const [isLogin, setIsLogin] = useState(false);
+    useEffect(() => {
+        const login = isLoggedIn();
+        setIsLogin(login);
+        // setIsLoggedInUser(login);
+    },[]);
+    useEffect(() => {
+
+    }, [isLogin]);
     return (
         <Navbar style={{backgroundColor:'lightgreen'}} expand="lg">
             <Container style={{paddingLeft:'40px'}}>
@@ -43,7 +54,10 @@ const NavbarComponent = () => {
                     <Nav.Link as={Link} to="/result" style={test}>Results</Nav.Link>
                     <Nav.Link as={Link} to="/download" style={test}>Download</Nav.Link>
                     <Nav.Link as={Link} to='/contactUs' style={test}>Contact Us</Nav.Link>
-                    <Nav.Link as={Link} to='/login' style={test}>Login</Nav.Link>
+                    { isLoggedIn()
+                        ? (<Nav.Link as={Link} to='/dashboard/stats' style={test}>Dashboard</Nav.Link>)
+                        : (<Nav.Link as={Link} to='/login' style={test}>Login</Nav.Link>)
+                    }
                 </Nav>
                 </Navbar.Collapse>
             </Container>

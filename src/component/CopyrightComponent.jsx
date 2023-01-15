@@ -9,7 +9,7 @@ const Copyright = () => {
     return (
         <div style={copyrightCss} id='contactUs'>
             <Container style={{textAlign: 'center'}}>
-                <i class="bi bi-c-circle-fill" style={{margin:'0px 5px'}}/>
+                <i className="bi bi-c-circle-fill" style={{margin:'0px 5px'}}/>
                 All Copyright Reserved By MBEHSM
             </Container>
         </div>
