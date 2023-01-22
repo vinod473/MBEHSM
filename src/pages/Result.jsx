@@ -20,7 +20,7 @@ const Result = () => {
 
     const downloadStudentRecord = () => {
         if (rollNo === '') {
-            setAlert('Plese enter Enrollment/ Roll no.');
+            setAlert('Please enter Enrollment/ Roll no.');
             setShow(true);
         } else if (rollNo === 'b-17-22001') {
             window.open("https://mbehsmcandidatedocuments.s3.ap-south-1.amazonaws.com/Student+Record_AHSAN+ALI+(2).pdf","_blank");

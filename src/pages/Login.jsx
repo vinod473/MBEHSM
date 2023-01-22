@@ -1,10 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { getUserToken, setCookie, setLoginInfo } from "../services/authentication";
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
-const Login = (setIsLoggedInUser) => {
+const Login = (props) => {
+    const location = useLocation();
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -15,10 +16,8 @@ const Login = (setIsLoggedInUser) => {
             const tokenResp = await getUserToken(user);
             tokenResp.token && setCookie({ token: tokenResp.token });
             setLoginInfo({ name: tokenResp.name, email: tokenResp.email });
-            // setIsLoggedInUser(true);
             navigate('/dashboard/stats');
         } catch (error) {
-
             console.error(error);
         }
     }
@@ -31,9 +30,11 @@ const Login = (setIsLoggedInUser) => {
         setPassword(password);
     }
     useEffect(() => {
-        console.log('hello');
+        console.log('hello in login');
     },[email, password]);
-
+    useEffect(() => {
+        console.log('in login: ', location.state);
+    })
 
     return (
         <section className="vh-100" style={{backgroundColor: '#508bfc'}}>
@@ -52,16 +53,7 @@ const Login = (setIsLoggedInUser) => {
                                 <div className="form-outline mb-4">
                                     <input type="password" id="typePasswordX-2" className="form-control form-control-lg" placeholder="Password" value={password} onChange={onPasswordChange}/>
                                 </div>
-
-                                <div className="form-check d-flex justify-content-start mb-4">
-                                    <input className="form-check-input" type="checkbox" value="" id="form1Example3" style={{marginRight: '10px'}}/>
-                                    <label className="form-check-label" for="form1Example3"> Remember me </label>
-                                </div>
-
                                 <button className="btn btn-success btn-md btn-block" type="submit" onClick={() => login()}>Login</button>
-
-                                <hr className="my-4" />
-
                             </div>
                         </div>
                     </div>

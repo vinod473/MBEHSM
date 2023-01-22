@@ -1,50 +1,62 @@
-// const puppeteer = require('puppeteer');
-// const fs = require('fs');
-// const _ = require('lodash');
+const axios = require('axios');
 
-// const populateTemplateVariables = (template, variables = {}) => {
-//     const compiled = _.template(template);
-//     return compiled(variables);
-// };
+const url = 'http://13.235.163.49:8085';
 
-// exports.generateStudentRecord = async (req, res) => {
-//     const pdfOptions = {
-//         path: '../public/studentRecord.pdf',
-//         format: 'A4',
-//         printBackground: true,
-//         width: 595,
-//         height: 842
-//     };
-//     const template = {};
-//     template.studentRecord = fs.readFileSync('templates/StudentRecord.html', 'utf-8').toString();
-//     template.stylesheet = fs.readFileSync('templates/stylesheet.css', 'utf-8').toString();
+exports.getStats = async (req) => {
+    try {
+        const res = await axios.get(`${url}/candidate_total`);
+        if (!res.data.errorCode)
+            return res;
+        throw new Error('unable to get candidate stats');
+    } catch(err) {
+        return err;
+    }
+};
 
-//     template.brandImage = fs.readFileSync('../public/Brand Logo.png').toString('base64');
-    
-//     const stylesheet = `<style type="text/css"> ${template.stylesheet} </style>`;
-//     template.studentRecord = template.studentRecord.replace('<style type="text/css"></style>', stylesheet);
-//     const brandImage = '<img className="brandImage" src="../../public/Brand Logo.png"/>';
-//     const brandImageBorder = '<img className="brand-image" src="../../public/Brand Logo.png"/>';
-//     template.studentRecord = template.studentRecord.replace(brandImage,`<img className="brandImage" alt="logo" src="data:image/png;base64,${template.brandImage}"`);
-//     template.studentRecord = template.studentRecord.replace(brandImageBorder,`<img className="brandImage" alt="logo" src="data:image/png;base64,${template.brandImage}"`);
-//     template.studentRecord = template.studentRecord.replace('<table background="../../public/Brand Logo.png">"',`<table background="data:image/png;base64,${template.brandImage}"`);
-//     const pdfTemplate = populateTemplateVariables(template.studentRecord);
+exports.getRecords = async (req) => {
+    try {
+        const res = await axios.get(`${url}/candidate_info`);
+        if (!res.data.errorCode)
+            return res;
+        throw new Error('unable to fetch candidate list');
+    } catch(err) {
+        return err;
+    }
+};
 
-//     try {
-//         const browser = await puppeteer.launch();
-//         const page = await browser.newPage();
-//         await page.setContent(pdfTemplate);
-        
-//         await page.pdf(pdfOptions);
-//         await page.close();
-//         await browser.close();
-        
-//         console.log('student record generated!');
-//         return Promise.resolve({
-//             fileName: 'studentRecord.pdf',
-//         });
-//     } catch(err) {
-//         const errMsg = 'Unexpected error while generating pdf';
-//         return Promise.reject(new StandardError(500, errMsg))
-//     }
-// };
+exports.newAdmission = async (req) => {
+    try {
+        // const res = await axios.get('');
+        const res = studentRecord;
+        return res;
+    } catch(err) {
+        return err;
+    }
+};
+
+exports.generateResult = async (req) => {
+    try {
+        const res = await axios.post(`${url}/candidate_info`, { headers: req.headers, body: req.body});
+        if (!res.data.errorCode)
+            return res;
+        throw new Error('unable to generate result');
+    } catch(err) {
+        return err;
+    }
+};
+
+exports.getCandidateInfo = async (req) => {
+    const headers = {
+        candidateId: req.headers.candidateid,
+        document_type: 'PROFILE_PIC'
+    };
+    try {
+        const res = await axios.get(`${url}/candidate_info`, { headers: headers});
+        if (!res.data.errorCode)
+            return res;
+        throw new Error('unable to get candidate info');
+    } catch(err) {
+        return err;
+    }
+};
+

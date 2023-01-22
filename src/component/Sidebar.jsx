@@ -12,13 +12,16 @@ const Sidebar = (isLoggedInUser) => {
     const onClickLogout = () => {
         const isLogin = isLoggedIn();
         if (!isLogin) {
-            setAlert('Plese enter Enrollment/ Roll no.');
+            setAlert('Please enter Enrollment/ Roll no.');
             setShow(true);
             return;
         }
         logout();
-        navigate('/login');
+        navigate('/login', {
+            state : { name: 'vinod' }
+        });
     }
+
     useEffect(() => {
 
     },[isLogin]);
@@ -43,19 +46,13 @@ const Sidebar = (isLoggedInUser) => {
                         </a>
                     </li>
                     <li>
-                        <a href="#hello">
+                        <a href="/dashboard/admissions">
                             <span className="icon"><i className="bi bi-card-checklist"></i></span>
                             <span className="item">Total admission</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#hello">
-                            <span className="icon"><i className="bi bi-newspaper"></i></span>
-                            <span className="item">Student Registration</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#hello">
+                        <a href="/dashboard/generateResult">
                             <span className="icon"><i className="bi bi-journal-check"></i></span>
                             <span className="item">Student Results</span>
                         </a>
