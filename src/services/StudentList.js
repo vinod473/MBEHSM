@@ -20,29 +20,31 @@ export const getCandidateTotalStats = async (req) => {
     .then((resp) => resp.data);
 };
     
-export const addNewAdmission = async (req) => {
+export const addNewAdmission = async (profilePic, studentDetails) => {
+    const formData = new FormData();
+    const data = JSON.stringify(studentDetails);
+    formData.append('file', profilePic.file);
+    formData.append('data', data);
     return fetch(`${url}/api/student/admission`, {
         method: 'POST',
-        headers: { ...getAuthHeader() },
-        body: JSON.stringify(req.body)
+        body: formData,
     })
     .then(validateResponse)
     .then((resp) => resp.data);
 };
 
 export const generateStudentResult = async (candidateId, studentInfo) => {
-    const reqHeaders = { ...getAuthHeader(), candidateId };
     return fetch(`${url}/api/student/generateResult`, {
         method: 'POST',
-        headers: reqHeaders,
+        headers: { ...getAuthHeader(), candidateId: candidateId },
         body: JSON.stringify(studentInfo)
     })
     .then(validateResponse)
     .then((resp) => resp.data);
 };
 
-export const getCandidateInfo = async (id) => {
-    const reqHeaders = { ...getAuthHeader(), candidateId: id };
+export const getCandidateInfo = (id, dob) => {
+    const reqHeaders = { ...getAuthHeader(), candidateId: id, dob: dob };
     return fetch(`${url}/api/student/candidateInfo`, {
         method: 'GET',
         headers: reqHeaders

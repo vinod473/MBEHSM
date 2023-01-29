@@ -1,15 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const http = require('http');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload = multer();
+const StudentController = require('./controllers/Student');
+const AuthController = require('./controllers/Auth');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 const server = http.createServer(app);
 const PORT = '8080';
 
-const StudentController = require('./controllers/Student');
-const AuthController = require('./controllers/Auth');
+app.use(bodyParser.json());
 app.use(cors());
+app.use(upload.single('file')); 
+app.use(express.static('public'));
 
 const startServer = () => {
     server.listen(PORT, () => {
@@ -19,9 +25,5 @@ const startServer = () => {
 
 app.use('/api/student', StudentController);
 app.use('/api/auth', AuthController);
-app.get('/download', function(req, res){
-    const file = '../public/studentRecord.pdf';
-    res.download(file); // Set disposition and send it.
-});
 
 startServer();

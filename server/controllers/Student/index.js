@@ -1,5 +1,4 @@
 const express = require('express');
-
 const router = express.Router();
 const studentController = require('./student.controller');
 const responseHandler = require('../../utils/responsehandler');
@@ -41,7 +40,7 @@ router.get('/stats', async (req, res) => {
 
 router.post('/admission', async (req, res) => {
     try {
-        const adm = await studentController.newAdmission();
+        const adm = await studentController.newAdmission(req);
         return responseHandler.successResponse(
             res, { statusCode: 200, data: adm.data, message: 'success' }
         );
@@ -53,7 +52,7 @@ router.post('/admission', async (req, res) => {
 
 router.post('/generateResult', async (req, res) => {
     try {
-        const result = await studentController.generateResult();
+        const result = await studentController.generateResult(req);
         return responseHandler.successResponse(
             res, { statusCode: 200, data: result.data, message: 'success' }
         );

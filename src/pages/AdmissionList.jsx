@@ -32,7 +32,6 @@ const AdmissionList = () => {
                         <th>Session</th>
                         <th>City</th>
                         <th>State</th>
-                        <th>Admission Date</th>
                         <th>Verify Status</th>
                     </tr>
                 </thead>
@@ -48,7 +47,6 @@ const AdmissionList = () => {
                                 <td>{student.courseSession}</td>
                                 <td>{student.candidateCity}</td>
                                 <td>{student.candidateState}</td>
-                                <td>{student.admDate}</td>
                                 <td>{student.candidateStatus}</td>
                             </tr>
                         ))

@@ -60,7 +60,7 @@ const Sidebar = (isLoggedInUser) => {
                     { isLoggedIn() && isLoggedInUser
                         ? (<li>
                             <a onClick={onClickLogout}>
-                                <span className="icon"><i class="bi bi-box-arrow-right"></i></span>
+                                <span className="icon"><i className="bi bi-box-arrow-right"></i></span>
                                 <span className="item">Logout</span>
                             </a>
                         </li> ) : null
