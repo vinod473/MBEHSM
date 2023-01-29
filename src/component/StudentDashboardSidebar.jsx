@@ -3,11 +3,9 @@ import { useEffect } from "react";
 import { Alert } from "react-bootstrap";
 import { useNavigate, useLocation } from "react-router-dom";
 import { fetchStudentProfile } from "../services/authentication";
-import { logout, getStudentUserInfo } from "../services/authentication";
+import { logout, getStudentUserInfo, getStudentProfileInfo } from "../services/authentication";
 
 const StudentDashboardSidebar = (studentProfileResp) => {
-    const profileResp = studentProfileResp;
-    const location = useLocation()
     const navigate = useNavigate();
     const [alert, setAlert] = useState('');
     const [show, setShow] = useState(false);
@@ -16,14 +14,18 @@ const StudentDashboardSidebar = (studentProfileResp) => {
         navigate('/studentLogin');
     }
     const showResult = () => {
-        navigate('/studentDashboard/studentResult');
+        const studentProfile = getStudentProfileInfo().userProfile;
+
+        navigate('/studentDashboard/studentResult', {
+            state: {resp: studentProfile}
+        });
     }
 
     const showStudentProfile = async () => {
         const user = getStudentUserInfo().user;
         const studentResp = await fetchStudentProfile(user)
         navigate('/studentDashboard/studentProfile', {
-            state: { resp: studentResp}
+            state: { resp: studentResp.response}
         });
     }
     return (

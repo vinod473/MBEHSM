@@ -8,6 +8,7 @@ import {
 } from "../services/authentication";
 import { useNavigate, useLocation } from "react-router-dom";
 import MDBSelect from "mdb-react-ui-kit";
+import { getStudentUserInfo, getStudentProfileInfo } from "../services/authentication";
 
 const loginLabelCss = {
   marginTop: "7px",
@@ -23,9 +24,9 @@ const label = {
   color: "rgb(85, 17, 242)",
 };
 
-const StudentResult = (prop) => {
+export const StudentResult = (prop) => {
   const navigate = useNavigate();
-  const location = useLocation();
+  const studentProfile = getStudentProfileInfo().userProfile;
   const [enrollmentNumber, setEnrollmentNumber] = useState("");
   const [year, setYear] = useState("");
   const [show, setShow] = useState(false);
@@ -53,10 +54,17 @@ const StudentResult = (prop) => {
       setShow(true);
       return;
     }
+    user.candidateId = studentProfile.candidateId;
+    try {
     const studentResultResp = await fetchStudentResult(user);
     navigate("/studentDashboard/showResult", {
-      state: { resp: studentResultResp },
+      state: { resp: studentResultResp.response },
     });
+  }catch(error) {
+    setAlert("Result has not been generated for the selected year, Please try again.");
+    setShow(true);
+    return;
+  }
   };
 
   return (
@@ -115,6 +123,7 @@ const StudentResult = (prop) => {
           </div>
         </Card>
       </Container>
+      <Container style={{ textAlign: "center"}}>
       <div style={{ textAlign: "center", width: "500px" }}>
         {show ? (
           <Alert variant="danger" onClose={() => setShow(false)} dismissible>
@@ -122,6 +131,7 @@ const StudentResult = (prop) => {
           </Alert>
         ) : null}
       </div>
+      </Container>
     </>
   );
 };

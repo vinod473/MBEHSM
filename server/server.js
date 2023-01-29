@@ -13,8 +13,6 @@ const server = http.createServer(app);
 const PORT = '8080';
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const StudentController = require('./controllers/Student');
-const AuthController = require('./controllers/Auth');
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader(
