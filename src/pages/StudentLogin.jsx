@@ -3,7 +3,7 @@ import Alert from 'react-bootstrap/Alert';
 import { useState, useMatch } from "react";
 import { Container, InputGroup, Form, Button, Card } from "react-bootstrap";
 import { fetchStudentProfile } from "../services/authentication";
-import { setCookie, setStudentLoginInfo} from "../services/authentication";
+import { setCookie, setStudentLoginInfo, setStudentProfileInfo} from "../services/authentication";
 import { useNavigate } from 'react-router-dom';
 
 const loginLabelCss = {
@@ -60,15 +60,24 @@ const StudentLogin = (prop) => {
             setShow(true);
             return
         }
-        user.dateOfBirth = "eee"//formatDateOfBirth(user.dateOfBirth);
+        user.dateOfBirth = formatDateOfBirth(user.dateOfBirth);
         setStudentLoginInfo(user);
         setCookie({enrollmentNumber:user.enrollmentNumber, dateOfBirth: user.dateOfBirth});
+        try {
         const studentResp = await fetchStudentProfile(user);
         if(studentResp) {
+            setStudentProfileInfo(studentResp.response);
+            setCookie({candidateId: studentResp.response.candidateId})
             navigate('/studentDashboard/studentProfile', {
-                state: { resp: studentResp}
+                state: { resp: studentResp.response}
             })
         }
+       }catch(error) {
+        setAlert('Invalid enrollment number or dob');
+        setShow(true);
+        return
+
+       }
     };
     
 

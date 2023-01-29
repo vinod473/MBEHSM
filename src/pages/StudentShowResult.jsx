@@ -1,10 +1,11 @@
-import React from "react";
-import { Card, Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Container, Row, Col, Button } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 
 const ShowResult = (resp) => {
   const location = useLocation();
+  const [toggle, setToggle] = useState(false);
   var studentResultResp;
   if (location && location.state && location.state.resp) {
     studentResultResp = location.state.resp; // remove this
@@ -22,6 +23,13 @@ const ShowResult = (resp) => {
     backgroundColor: "#d9f7b7",
     color: "#5511f2",
   };
+  var resultInfoList = [];
+  resultInfoList = studentResultResp.resultInfoList;
+
+  const onSubmit = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <>
       <Container className="mt-3" style={formContrl}>
@@ -60,11 +68,50 @@ const ShowResult = (resp) => {
                     </tbody>
                   </Table>
                 )}
+                <Button variant="success" type="submit" onClick={onSubmit}>
+                  View Details
+                </Button>
               </Card.Body>
             </Card>
           </Col>
         </Row>
       </Container>
+
+      {toggle ? (
+        <Container className="mt-3" style={formContrl}>
+          <Row className="mb-5">
+            <Col xs={12}>
+              <Card className="shadow-lg">
+                <Card.Header style={cardHeaderCss} className="p-3">
+                  <h3>SubjectWise Details</h3>
+                </Card.Header>
+                <Card.Body>
+                  {!resultInfoList ? null : (
+                    <Table striped bordered hover size="sm">
+                      <thead>
+                        <tr>
+                          <th>Subject Name</th>
+                          <th>Total Marks</th>
+                          <th>Obtained Marks</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {resultInfoList.map((listValue, index) => (
+                          <tr key={index}>
+                            <td>{listValue.subject}</td>
+                            <td>{listValue.totalMarks}</td>
+                            <td>{listValue.obtainedMarks}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </Table>
+                  )}
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
+      ) : null }
     </>
   );
 };

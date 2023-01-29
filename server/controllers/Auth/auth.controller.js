@@ -46,9 +46,8 @@ exports.studentLogin =async  (req) => {
             url: `${url}/studentLogin`
         };
         const result = await axios(options);
-        if (result) { 
-            return result.data;
-        }
+        if (!result.data.errorCode)
+        return result;
         throw new Error('Failed to get student details');
     } catch (error) {
         const responseObject = {
@@ -73,9 +72,8 @@ exports.fetchStudentResult =async  (req) => {
             url: `${url}/fetch_result`
         };
         const result = await axios(options);
-        if (result) { 
-            return result.data;
-        }
+        if (!result.data.errorCode)
+           return result;
         throw new Error('Failed to get student result');
     } catch (error) {
         const responseObject = {

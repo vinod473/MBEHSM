@@ -47,6 +47,14 @@ export const setStudentLoginInfo = (loginInfo = {}) => {
     setCookie({ studentUserInfo });
 };
 
+export const setStudentProfileInfo = (profileInfo = {}) => {
+    console.log("setStudentProfileInfo", profileInfo); //remove this
+    const studentProfileInfo = {
+        candidateId: profileInfo.candidateId || "",
+    }
+    setCookie({ studentProfileInfo });
+};
+
 export const getUserInfo = () => {
     const user = getCookie('userInfo') && JSON.parse(getCookie('userInfo'));
     const roles = getCookie('roles') && JSON.parse(getCookie('roles'));
@@ -57,6 +65,11 @@ export const getUserInfo = () => {
 export const getStudentUserInfo = () => {
     const user = getCookie('studentUserInfo') && JSON.parse(getCookie('studentUserInfo'));
     return { user};
+};
+
+export const getStudentProfileInfo = () => {
+    const userProfile = getCookie('studentProfileInfo') && JSON.parse(getCookie('studentProfileInfo'));
+    return { userProfile};
 };
 
 export const getUserDetails = (userDetails) => {
@@ -77,7 +90,7 @@ export const getHeaders = (req) => ({
 
 export const getStudentResultHeaders = (req) => ({
     'Content-Type': 'application/json',
-    'candidateId': req.enrollmentNumber,
+    'candidateId': req.candidateId,
     'resultYear': req.year
 });
 

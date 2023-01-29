@@ -24,7 +24,7 @@ const StudentProfile = (resp) => {
         backgroundColor: '#d9f7b7',
         color: '#5511f2'
     };
-    
+
     return (
         <>
         <Container className="mt-3" style={formContrl}>
