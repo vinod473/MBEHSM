@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import SharedLayout from './pages/SharedLayout';
 import Home from './pages/Home';
@@ -26,24 +26,16 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import StudentDashboard from './pages/StudentDashboard';
 import Stats from './pages/Stats';
-import StudentRegistration from './pages/registration/StudentRegistration';
-import { isLoggedIn } from './services/authentication';
+import AdmissionList from './pages/AdmissionList';
+import StudenRegistration from './pages/StudentRegistration';
+import GenerateResult from './pages/GenerateResult';
 
 const App = () => {
-  const [isLoggedInUser, setIsLoggedInUser] = useState(false);
-  useEffect(() => {
-      const isLogin = isLoggedIn();
-      setIsLoggedInUser(isLogin);
-  }, [])
-  useEffect(() => {
-    console.log('zoooddd');
-  }, [isLoggedInUser]);
-
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-          <Route path='/' element={<SharedLayout isLoggedInUser={isLoggedInUser} setIsLoggedInUser={setIsLoggedInUser} />}>
+          <Route path='/' element={<SharedLayout />}>
             <Route index element={<Home />} />
             <Route path='contactUs' element={<ContactUs />} />
             <Route path='gallery' element={<Gallery />} />
@@ -63,10 +55,12 @@ const App = () => {
             <Route path='legal' element={<Legal />} />
             <Route path='affiliation' element={<Affiliation />} />
             <Route path='registration' element={<Registration />} />
-            <Route path='login' element={<Login setIsLoggedInUser={setIsLoggedInUser} />} />
-            <Route path='dashboard' element={<Dashboard isLoggedInUser={isLoggedInUser} />}>
+            <Route path='login' element={<Login />} />
+            <Route path='dashboard' element={<Dashboard />}>
               <Route path='stats' element={<Stats />} />
-              <Route path='register' element={<StudentRegistration />} />
+              <Route path='register' element={<StudenRegistration />} />
+              <Route path='admissions' element={<AdmissionList />} />
+              <Route path='generateResult' element={<GenerateResult />} />
             </Route>
             <Route path='studentDashboard' element={<StudentDashboard />} >
              <Route path='studentProfile' element={<StudentProfile />} />

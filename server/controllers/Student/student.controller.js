@@ -1,50 +1,81 @@
-// const puppeteer = require('puppeteer');
-// const fs = require('fs');
-// const _ = require('lodash');
+const axios = require('axios');
+const formdata = require('form-data');
+const form = new formdata();
+const url = 'http://13.235.163.49:8085';
 
-// const populateTemplateVariables = (template, variables = {}) => {
-//     const compiled = _.template(template);
-//     return compiled(variables);
-// };
+exports.getStats = async (req) => {
+    try {
+        const res = await axios.get(`${url}/candidate_total`);
+        if (!res.data.errorCode)
+            return res;
+        throw new Error(res.data.errorMessage || 'unable to get candidate stats!');
+    } catch(err) {
+        throw err;
+    }
+};
 
-// exports.generateStudentRecord = async (req, res) => {
-//     const pdfOptions = {
-//         path: '../public/studentRecord.pdf',
-//         format: 'A4',
-//         printBackground: true,
-//         width: 595,
-//         height: 842
-//     };
-//     const template = {};
-//     template.studentRecord = fs.readFileSync('templates/StudentRecord.html', 'utf-8').toString();
-//     template.stylesheet = fs.readFileSync('templates/stylesheet.css', 'utf-8').toString();
+exports.getRecords = async (req) => {
+    try {
+        const res = await axios.get(`${url}/candidate_info`);
+        if (!res.data.errorCode)
+            return res;
+        throw new Error(res.data.errorMessage || 'unable to fetch student records!');
+    } catch(err) {
+        throw err;
+    }
+};
 
-//     template.brandImage = fs.readFileSync('../public/Brand Logo.png').toString('base64');
-    
-//     const stylesheet = `<style type="text/css"> ${template.stylesheet} </style>`;
-//     template.studentRecord = template.studentRecord.replace('<style type="text/css"></style>', stylesheet);
-//     const brandImage = '<img className="brandImage" src="../../public/Brand Logo.png"/>';
-//     const brandImageBorder = '<img className="brand-image" src="../../public/Brand Logo.png"/>';
-//     template.studentRecord = template.studentRecord.replace(brandImage,`<img className="brandImage" alt="logo" src="data:image/png;base64,${template.brandImage}"`);
-//     template.studentRecord = template.studentRecord.replace(brandImageBorder,`<img className="brandImage" alt="logo" src="data:image/png;base64,${template.brandImage}"`);
-//     template.studentRecord = template.studentRecord.replace('<table background="../../public/Brand Logo.png">"',`<table background="data:image/png;base64,${template.brandImage}"`);
-//     const pdfTemplate = populateTemplateVariables(template.studentRecord);
+exports.newAdmission = async (req) => {
+    form.append('file', req.file.buffer, req.file.originalname);
+    const obj = JSON.parse(req.body.data);
+    const options = {
+        url: `${url}/add_admission`,
+        method: 'POST',
+        params: obj,
+        data: form
+    };
+    try {
+        const res = await axios(options);
+        if (!res.data.errorCode)
+            return res;
+        throw new Error(res.data.errorMessage || 'New student admission failed!!');
+    } catch(err) {
+        throw err;
+    }
+};
 
-//     try {
-//         const browser = await puppeteer.launch();
-//         const page = await browser.newPage();
-//         await page.setContent(pdfTemplate);
-        
-//         await page.pdf(pdfOptions);
-//         await page.close();
-//         await browser.close();
-        
-//         console.log('student record generated!');
-//         return Promise.resolve({
-//             fileName: 'studentRecord.pdf',
-//         });
-//     } catch(err) {
-//         const errMsg = 'Unexpected error while generating pdf';
-//         return Promise.reject(new StandardError(500, errMsg))
-//     }
-// };
+exports.generateResult = async (req) => {
+    const { resultYear } = req.body;
+    const { candidateid } = req.headers;
+    req.body.resultYear = Number(resultYear);
+    req.headers.candidateId = Number(candidateid);
+    try {
+        const res = await axios.post(`${url}/generate_result`, req.body, { headers: req.headers });
+        if (!res.data.errorCode)
+            return res;
+        throw new Error(res.data.errorMessage || 'unable to generate result');
+    } catch(err) {
+        throw err;
+    }
+};
+
+exports.getCandidateInfo = async (req) => {
+    const headers = {
+        enrollmentNumber: req.headers.candidateid,
+        dob: req.headers.dob
+    };
+    const options = {
+        url: `${url}/studentLogin`,
+        method: 'POST',
+        headers: headers
+    };
+    try {
+        const res = await axios(options);
+        if (!res.data.errorCode)
+            return res;
+        throw new Error(res.data.errorMessage || 'unable to get candidate info');
+    } catch(err) {
+        throw err;
+    }
+};
+

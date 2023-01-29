@@ -5,15 +5,15 @@ import ContactComponent from "../component/ContactComponent";
 import Copyright from "../component/CopyrightComponent";
 import NavbarComponent from "../component/NavbarComponent";
 
-const SharedLayout = (isLoggedInUser, setIsLoggedInUser) => {
+const SharedLayout = (props) => {
     useState(() => {
-
+        // console.log('In shared layout: ', isLoggedInUser);
     }, [])
     return (
         <>
             <ContactComponent />
             <BrandContent />
-            <NavbarComponent isLoggedInUser={isLoggedInUser} setIsLoggedInUser={setIsLoggedInUser} />
+            <NavbarComponent />
             <Outlet />
             <Copyright />
         </>

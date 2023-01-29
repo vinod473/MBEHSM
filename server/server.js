@@ -1,9 +1,14 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const http = require('http');
+const bodyParser = require('body-parser');
+const multer = require('multer');
+const upload = multer();
+const StudentController = require('./controllers/Student');
+const AuthController = require('./controllers/Auth');
 
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
 const server = http.createServer(app);
 const PORT = '8080';
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -29,6 +34,8 @@ app.use((req, res, next) => {
 });
 app.use(bodyParser.json());
 app.use(cors());
+app.use(upload.single('file')); 
+app.use(express.static('public'));
 
 const initRoutes = (app) => {
     app.use('/sanity', (req, res) => {

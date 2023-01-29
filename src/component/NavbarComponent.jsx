@@ -11,12 +11,11 @@ const test = {
     margin:'0px 8px',
     backgroundColor:'lightgreen'
 };
-const NavbarComponent = (isLoggedInUser, setIsLoggedInUser) => {
+const NavbarComponent = (props) => {
     const [isLogin, setIsLogin] = useState(false);
     useEffect(() => {
         const login = isLoggedIn();
         setIsLogin(login);
-        // setIsLoggedInUser(login);
     },[]);
     useEffect(() => {
 
