@@ -8,7 +8,7 @@ router.post('/token', async (req, res) => {
     try {
         const token = await authController.getToken(req);
         return responseHandler.successResponse(
-            res, { statusCode: 200, data: token, message: 'Success' }
+            res, { statusCode: 200, data: token.data, message: 'Success' }
         );
     } catch (error) {
         const statusCode = error.status || 500;

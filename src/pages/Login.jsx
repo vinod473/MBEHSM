@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { getUserToken, setCookie, setLoginInfo } from "../services/authentication";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Alert } from "react-bootstrap";
 
 
 const Login = (props) => {
@@ -9,15 +10,25 @@ const Login = (props) => {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [alert, setAlert] = useState('');
+    const [show, setShow] = useState(false);
+    const [variant, setVariant] = useState('');
 
+    const showMessage = (message, type) => {
+        setAlert(message);
+        setVariant(type)
+        setShow(true);
+    };
     const login = async () => {
         try {
             const user = { email, password };
-            const tokenResp = await getUserToken(user);
-            tokenResp.token && setCookie({ token: tokenResp.token });
-            setLoginInfo({ name: tokenResp.name, email: tokenResp.email });
+            const resp = await getUserToken(user);
+            const { accessToken, firstName, emailId } = resp.response;
+            accessToken && setCookie({ token: accessToken });
+            setLoginInfo({ name: firstName, email: emailId });
             navigate('/dashboard/stats');
         } catch (error) {
+            showMessage('Invalid credentials!!', 'danger');
             console.error(error);
         }
     }
@@ -39,6 +50,13 @@ const Login = (props) => {
     return (
         <section className="vh-100" style={{backgroundColor: '#508bfc'}}>
             <div className="container py-5">
+                <div style={{ textAlign: 'center', width: '300px'}}>
+                    {show ? (
+                        <Alert variant={variant} onClose={() => setShow(false)} dismissible>
+                            {alert}
+                        </Alert>
+                    ) : null}
+                </div>
                 <div className="row d-flex justify-content-center align-items-center">
                     <div className="col-12 col-md-8 col-lg-6 col-xl-5">
                         <div className="card shadow-2-strong" style={{borderRadius: '1rem'}}>
