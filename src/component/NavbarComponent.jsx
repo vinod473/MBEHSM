@@ -5,7 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
-import { isLoggedIn } from '../services/authentication';
+import { isLoggedIn, isStudentLoggedIn } from '../services/authentication';
 
 const test = {
     margin:'0px 8px',
@@ -39,6 +39,7 @@ const NavbarComponent = (props) => {
                         <NavDropdown.Item as={Link} to='/registrar'>Registrar Message</NavDropdown.Item>
                     </NavDropdown>
                     <NavDropdown title="Academic" id="basic-nav-dropdown" style={test}>
+                        <NavDropdown.Item as={Link} to='/studentLogin'>Student Login</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/student'>Student Corner</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Course Details</NavDropdown.Item>
                         <NavDropdown.Item as={Link} to='/'>Academic Calender</NavDropdown.Item>

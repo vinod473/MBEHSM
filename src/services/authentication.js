@@ -39,11 +39,24 @@ export const setLoginInfo = (loginInfo = {}) => {
     setCookie({ userInfo });
 };
 
+export const setStudentLoginInfo = (loginInfo = {}) => {
+    const studentUserInfo = {
+        enrollmentNumber: loginInfo.enrollmentNumber || "",
+        dateOfBirth: loginInfo.dateOfBirth || ""
+    }
+    setCookie({ studentUserInfo });
+};
+
 export const getUserInfo = () => {
     const user = getCookie('userInfo') && JSON.parse(getCookie('userInfo'));
     const roles = getCookie('roles') && JSON.parse(getCookie('roles'));
     const permissions = getCookie('permissions') && JSON.parse(getCookie('permissions'));
     return { user, roles, permissions };
+};
+
+export const getStudentUserInfo = () => {
+    const user = getCookie('studentUserInfo') && JSON.parse(getCookie('studentUserInfo'));
+    return { user};
 };
 
 export const getUserDetails = (userDetails) => {
@@ -56,6 +69,18 @@ export const getAuthHeader = () => ({
     authorization: `Bearer ${getCookie('token')}`
 });
 
+export const getHeaders = (req) => ({
+    'Content-Type': 'application/json',
+    'enrollmentNumber': req.enrollmentNumber,
+    'dob': req.dateOfBirth
+});
+
+export const getStudentResultHeaders = (req) => ({
+    'Content-Type': 'application/json',
+    'candidateId': req.enrollmentNumber,
+    'resultYear': req.year
+});
+
 export const getUserToken = (req) => fetch(`${url}/api/auth/token`, {
     method: 'POST',
     headers: getAuthHeader(),
@@ -63,6 +88,16 @@ export const getUserToken = (req) => fetch(`${url}/api/auth/token`, {
 })
     .then(validateResponse)
     .then((resp) => resp.data)
+    .catch((error) => { throw error; });
+
+export const fetchStudentProfile = (req) => fetch(`${url}/api/auth/studentLogin`, {
+    method: 'POST',
+    headers: getHeaders(req),
+})
+    .then(validateResponse)
+    .then((resp) => {
+        return resp.data;
+    })
     .catch((error) => { throw error; });
 
 export const isLoggedIn = () => {
@@ -82,4 +117,14 @@ export const logout = () => {
     setCookie({ token: '' });
     setCookie({ userInfo: '' });
 };
+
+export const fetchStudentResult = (req) => fetch(`${url}/api/auth/fetchResult`, {
+    method: 'GET',
+    headers: getStudentResultHeaders(req),
+})
+    .then(validateResponse)
+    .then((resp) => {
+        return resp.data;
+    })
+    .catch((error) => { throw error; });
 
